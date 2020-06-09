@@ -23,8 +23,7 @@ import _ from "lodash";
 import { routes } from "../router/router";
 
 export default {
-  props: {
-  },
+  props: {},
 
   computed: {
     title() {
@@ -41,13 +40,7 @@ export default {
     },
 
     color() {
-      return _.get(
-        {
-          home: "#004D40"
-        },
-        this.routeName,
-        "primary"
-      );
+      return "primary";
     },
 
     routeName() {

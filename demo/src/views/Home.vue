@@ -1,13 +1,6 @@
 <template lang="pug">
-div(style='display: flex; flex-direction: column; align-items: center')
-  div(:style='divStyle')
-    div(style='display: flex; flex-direction: column; align-items: center')
-      //- v-img(src='@assets/logo_white.svg'
-      //-       width='150px')
-      span.display-1.font-weight-light.white--text(
-        style='margin-top: 16px') Eigen JS
-  div(style='width: 100%; max-width: 960px; padding: 40px'
-      v-html='markdownHtml')
+div.docs-container
+  div.docs-class(v-html='markdownHtml')
 </template>
 
 <script>
@@ -74,4 +67,22 @@ export default {
 </script>
 
 <style>
+.docs-container {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  background: #f0f2f5
+}
+
+.docs-class {
+  max-width: 920px;
+  height: 100%;
+  background: white;
+  padding: 64px;
+  padding-top: 48px;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-color: #00000022;
+  border-width: 1px;
+}
 </style>

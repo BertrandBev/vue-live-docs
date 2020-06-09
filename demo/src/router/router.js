@@ -6,8 +6,7 @@ import Home from '@dsrc/views/Home.vue'
 Vue.use(VueRouter)
 
 const classes = [
-  { name: 'matrix', title: 'Matrix', icon: 'mdi-matrix' },
-  { name: 'solvers', title: 'Solvers', icon: 'mdi-cogs' }
+  { name: 'float', title: 'Float', icon: 'mdi-beta' },
 ]
 const classRoutes = classes.map(cl => ({
   ...cl,
@@ -20,6 +19,10 @@ const classRoutes = classes.map(cl => ({
 const routes = [
   {
     path: '/',
+    redirect: '/float'
+  },
+  {
+    path: '/home',
     name: 'home',
     title: 'Live doc JS',
     group: 'Pages',

@@ -1,24 +1,15 @@
-# demo
+# Vue-live-docs
 
-## Project setup
-```
-yarn install
-```
+Vue-live-docs is a [Vue](https://vuejs.org/) library to generate live documentation
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Example
 
-### Compiles and minifies for production
-```
-yarn build
-```
+An example is available at [vue-live-docs](TODO)
 
-### Lints and fixes files
-```
-yarn lint
-```
+### Generate the documentation
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+The documentation is generated from classes descriptions using [documentation.js](https://documentation.js.org/)
+
+```bash
+documentation build demo/docs/classes -f json -o demo/docs/doc.json
+```

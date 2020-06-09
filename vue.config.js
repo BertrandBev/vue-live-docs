@@ -11,7 +11,8 @@ module.exports = {
     config
       .plugin("html")
       .tap(args => {
-        args[0].template = "./demo/public/index.html"
+        if (args[0])
+          args[0].template = "./demo/public/index.html"
         return args
       })
 

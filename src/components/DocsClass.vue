@@ -7,20 +7,24 @@ v-col
 
   Method(v-if='constructorFunction'
          :data='constructorFunction'
-         :constructorClass='name')
-  
-  //- v-row
-  //-   .headline.font-weight-light Static methods
+         :constructorClass='name'
+         :env='env')
+    template(v-slot:default='props')
+      slot(:result='props.result')
   
   Method(v-for='method, idx in staticMembers'
-            :key='`static_${idx}`'
-            :data='method')
-  //- v-row
-  //-   .headline.font-weight-light Instance methods
+         :key='`static_${idx}`'
+         :data='method'
+         :env='env')
+    template(v-slot:default='props')
+      slot(:result='props.result')
   
   Method(v-for='method, idx in instanceMembers'
-            :key='`instance_${idx}`'
-            :data='method')
+         :key='`instance_${idx}`'
+         :data='method'
+         :env='env')
+    template(v-slot:default='props')
+      slot(:result='props.result')
 </template>
 
 <script>
@@ -32,7 +36,11 @@ export default {
   name: "Class",
 
   props: {
-    data: Object
+    data: Object,
+    env: {
+      type: Object,
+      default: () => {}
+    }
   },
 
   components: {

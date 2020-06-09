@@ -23,7 +23,10 @@ v-col
     CodeArea(v-for='example, idx in examples'
             :key='`example_${idx}`'
             :code='example.description'
-            texEval)
+            :env='env'
+            eval)
+      template(v-slot:default='props')
+        slot(:result='props.result')
 </template>
 
 <script>
@@ -38,7 +41,11 @@ export default {
 
   props: {
     data: Object,
-    constructorClass: String
+    constructorClass: String,
+    env: {
+      type: Object,
+      default: () => {}
+    }
   },
 
   components: {

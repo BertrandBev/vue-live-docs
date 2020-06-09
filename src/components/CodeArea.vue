@@ -1,26 +1,26 @@
 <template lang='pug'>
 v-col.py-0.px-0
-  div(style='position: relative')
+  div(style='position: relative'
+      @click='onClick')
     pre.hljs(v-if='!editable')
       span(v-html='highlightedCode')
     codemirror(v-else
                ref="codeMirror"
                :value="code")
     div.actionBar
-      v-btn(v-if='!editable'
-            icon fab dark small color='green'
-            @click='edit')
-        v-icon mdi-pencil
       v-btn(icon fab dark small color='green'
             @click='run')
         v-icon mdi-play
-  //- v-row.pa-0(align='center' style='position: relative; width: 300px')
-    //- v-btn.ml-2(style='flex: 0 0 auto'
-    //-             @click='eval') EVAL
-  v-row.mt-3.mx-0(v-if='texEval')
-    TexDisplay(v-if='showResult'
-               :value='result'
-               @clear='clear')
+  v-row.mt-3.mx-0(v-if='eval')
+    v-alert(v-model='showResult'
+            border='left'
+            outlined
+            dismissible
+            min-width='100%'
+            icon='mdi-chevron-right'
+            color='green')
+      slot(:result='result')
+        .grey--text.text--darken-2 {{result}}
     v-alert(v-model='showError'
             dismissible
             border='left'
@@ -31,7 +31,6 @@ v-col.py-0.px-0
 </template>
 
 <script>
-import TexDisplay from "@components/TexDisplay.vue";
 import hljs from "highlight.js/lib/highlight";
 import javascript from "highlight.js/lib/languages/javascript";
 hljs.registerLanguage("javascript", javascript);
@@ -41,11 +40,14 @@ export default {
 
   props: {
     code: String,
-    texEval: Boolean
+    eval: Boolean,
+    env: {
+      type: Object,
+      default: () => {}
+    }
   },
 
   components: {
-    TexDisplay
   },
 
   data: () => ({
@@ -70,6 +72,12 @@ export default {
   },
 
   methods: {
+    onClick() {
+      console.log('on click');
+      if (!this.editable)
+        this.edit();
+    },
+
     edit() {
       this.editable = true;
     },
@@ -81,14 +89,15 @@ export default {
     },
 
     run() {
-      if (this.texEval) {
+      if (this.eval) {
         this.showResult = false;
         this.showError = false;
         let code = this.getCode();
         try {
-          let f = new Function("eig", code);
-          this.result = f(); // TODO: pass args
+          let f = new Function(Object.keys(this.env), code);
+          this.result = f(...Object.values(this.env)); // TODO: pass args
           // eig.GC.flush()
+          console.log("result", this.result)
           this.showResult = true;
         } catch (e) {
           this.showError = true;
