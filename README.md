@@ -4,7 +4,7 @@ Vue-live-docs is a [Vue](https://vuejs.org/) library to generate live documentat
 
 ## Example
 
-An example is available at [vue-live-docs](TODO)
+An example is available at [vue-live-docs](https://bertrandbev.github.io/vue-live-docs/)
 
 ### Generate the documentation
 

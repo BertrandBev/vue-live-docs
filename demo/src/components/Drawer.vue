@@ -58,7 +58,7 @@ export default {
     },
 
     github() {
-      window.open("https://github.com/BertrandBev/eigen-js", "_blank");
+      window.open("https://github.com/BertrandBev/vue-live-docs", "_blank");
     },
 
     isActive(name) {
