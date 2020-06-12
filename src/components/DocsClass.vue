@@ -28,8 +28,8 @@ v-col
 </template>
 
 <script>
-import Method from "@/components/Method.vue";
-import Description from "@/components/Description.vue";
+import Method from "./Method.vue";
+import Description from "./Description.vue";
 import _ from "lodash";
 
 export default {

@@ -30,10 +30,10 @@ v-col
 </template>
 
 <script>
-import Description from "@components/Description.vue";
-import Warning from "@components/Warning.vue";
-import Parameter from "@components/Parameter.vue";
-import CodeArea from "@components/CodeArea.vue";
+import Description from "./Description.vue";
+import Warning from "./Warning.vue";
+import Parameter from "./Parameter.vue";
+import CodeArea from "./CodeArea.vue";
 import _ from "lodash";
 
 export default {
