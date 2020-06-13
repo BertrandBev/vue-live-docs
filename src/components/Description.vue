@@ -1,5 +1,5 @@
 <template lang="pug">
-span.block.pl-2.grey--text.text--darken-2 {{ data }}
+span.pl-3.grey--text.text--darken-2.block {{ data }}
 </template>
 
 <script>
@@ -13,6 +13,6 @@ export default {
 <style scoped>
 .block {
   border-left: 5px solid lightgray;
-  white-space: pre;
+  white-space: pre-wrap;
 }
 </style>

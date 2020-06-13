@@ -7,19 +7,19 @@ v-col
                 label
                 outlined
                 x-small) {{ chipName }}
-  v-row.mt-1
+  v-row.mt-3
     Description(:data='description')
   v-row
-    Warning.mt-1(v-for='warning, idx in warnings'
+    Warning.mt-3(v-for='warning, idx in warnings'
                  :key='`warning_${idx}`'
                  :data='warning.description')
-  Parameter.mt-1.ml-2(v-for='param, idx in params'
+  Parameter.mt-3.ml-2(v-for='param, idx in params'
                       :key='`param_${idx}`'
                       :data='param')
-  Parameter.mt-1.ml-2(v-for='ret, idx in returns'
+  Parameter.mt-3.ml-2(v-for='ret, idx in returns'
                       :key='`return_${idx}`'
                       :data='ret')
-  v-row.mt-2
+  v-row.mt-4
     CodeArea(v-for='example, idx in examples'
             :key='`example_${idx}`'
             :code='example.description'

@@ -2,7 +2,7 @@
 v-col
   v-row
     .display-1.font-weight-light {{ name }}
-  v-row.mt-1
+  v-row.mt-3
     Description(:data='description')
 
   Method(v-if='constructorFunction'
