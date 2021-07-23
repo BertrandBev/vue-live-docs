@@ -31,7 +31,7 @@ v-col.py-0.px-0
 </template>
 
 <script>
-import hljs from "highlight.js/lib/highlight";
+import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 hljs.registerLanguage("javascript", javascript);
 
