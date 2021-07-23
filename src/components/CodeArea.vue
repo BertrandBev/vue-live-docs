@@ -17,6 +17,8 @@ v-col.py-0.px-0
             outlined
             dismissible
             min-width='100%'
+            max-width='100%'
+            style='overflow-x: scroll'
             icon='mdi-chevron-right'
             color='green')
       slot(:result='result')
