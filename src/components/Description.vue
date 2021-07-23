@@ -1,5 +1,5 @@
 <template lang="pug">
-span.block.pl-2.grey--text.text--darken-2(style='width: 100px') {{ data }}
+span.block.pl-2.grey--text.text--darken-2 {{ data }}
 </template>
 
 <script>
